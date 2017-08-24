@@ -27,3 +27,5 @@ timeout_sec = 2
 chech_interval_sec = 1
 
 request_path = "/"
+
+vof_disk_size = 20
