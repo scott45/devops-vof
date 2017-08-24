@@ -2,10 +2,6 @@ variable "env_name" {
   type = "string"
 }
 
-variable "region" {
-  type = "string"
-}
-
 variable "google_project_id" {
   type = "string"
 }
@@ -13,6 +9,42 @@ variable "google_project_id" {
 variable "ip_cidr_range" {
   type = "string"
 }
+
+variable "zone" {
+  type = "string"
+}
+
+variable "request_path" {
+  type = "string"
+}
+
+variable "vof_disk_image" {
+  type = "string"
+}
+
+variable "machine_type" {
+  type = "string"
+}
+
+variable "vof_disk_size" {
+  type = "string"
+}
+
+variable "vof_disk_type" {
+  type = "string"
+}
+
+variable "check_interval_sec" {}
+
+variable "max_instances" {}
+
+variable "min_instances" {}
+
+variable "healthy_threshold" {}
+
+variable "unhealthy_threshold" {}
+
+variable "timeout_sec" {}
 
 #google_compute_instance which manages a vm instance resource within gce
 #unique name and optional description
@@ -27,8 +59,10 @@ resource "google_compute_instance" "vof" {
   zone         = "europe-west1-b"
 
   # scratch disk to attach to the instance. can be specified multiple times for multiple scratch disks 
-  scratch_disk = {
-    image = "vof-image-ruby-2017-08-21-124244"
+  boot_disk = {
+    initialize_params {
+      image = "vof-image-ruby-2017-08-21-124244"
+    }
   }
 
   # internal ip address of the instance (manually or dynamically assigned)
