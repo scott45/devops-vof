@@ -1,0 +1,32 @@
+"image.json"image
+
+{
+"variables": {"service_account_json":"{{ env `....`}}"},
+"builders": [{
+    "type": "...",
+    "project_id": "...",
+    "image_name": "...",
+    "image_family": "...",
+    "image_description": "...",
+    "disk_size": "10",
+    "source_image": "...",
+    "region": "...",
+    "zone": "...",
+    "ssh_username": "...",
+    "account_file": "...",
+    "machine_type": "n1-standard-1"
+  }],
+"provisioners":[{"type": shell, "script":"blah.sh"}]
+
+}
+
+
+"setup.sh" script
+
+#!/usr/bin/env bash
+set -ex
+install dependencies(){}
+install python(){}
+install python dependencies(){}
+main(){}
+main "$@"

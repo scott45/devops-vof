@@ -1,27 +1,41 @@
-
 {
-    "variables": {
-        "service_account_json": "{{ env `SERVICE_ACCOUNT_JSON` }}"
-    },
-    "builders": [ 
-      {
-        "type": "googlecompute",
-        "disk_size": 10,
-        "image_name": "vof-image-ruby-trial-scott-{{ isotime \"2006-01-02-030405\"}}",
-        "image_description": "vof image for a rails application",
-        "project_id": "vof-testbed-2",
-        "source_image": "ubuntu-1604-xenial-v20170815a",
-        "region": "europe-west1",
-        "zone": "europe-west1-b",
-        "image_family": "ubuntu-1604-lts",
-        "ssh_username": "vof",
-        "account_file": "{{user `service_account_json`}}",
-        "machine_type": "n1-standard-1"
-      }
-    ],
-    "provisioners": [{
-        "type": "shell",
-        "script": "setup.sh"
+  "variables": {
+      "service_account_json": "/Users/scotty/Desktop/desktop issh/Vof/packer/files/cred.json" 
+  },
+  "builders": [ 
+    {
+      "type": "googlecompute",
+      "disk_size": 10,
+      "image_name": "vof-image-withrubycode-latest-scott-{{timestamp}}",
+      "image_description": "vof image for a rails application",
+      "project_id": "vof-testbed-2",
+      "source_image": "ubuntu-1604-xenial-v20170815a",
+      "region": "europe-west1",
+      "zone": "europe-west1-b",
+      "image_family": "ubuntu-1604-lts",
+      "ssh_username": "vof",
+      "account_file": "{{user `service_account_json`}}",
+      "machine_type": "n1-standard-1"
     }
-    ]
+  ],
+  "provisioners": [
+
+    {
+      "type": "shell-local",
+      "command": "mkdir tmp"
+    },
+
+    {
+      "type": "file",
+      "source": "/Users/scotty/desktop/sample/vof-tracker",
+      "destination": "/tmp",
+      "direction": "upload"
+
+    },
+
+    {
+      "type": "shell",
+      "script": "setup.sh"
+    }
+  ]
 }
