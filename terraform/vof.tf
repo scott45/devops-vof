@@ -1,50 +1,75 @@
-variable "env_name" {
-  type = "string"
-}
+# variable "env_name" {
+#   type = "string"
+# }
 
-variable "google_project_id" {
-  type = "string"
-}
+# variable "google_project_id" {
+#   type = "string"
+# }
 
-variable "ip_cidr_range" {
-  type = "string"
-}
+# variable "ip_cidr_range" {
+#   type = "string"
+# }
 
-variable "zone" {
-  type = "string"
-}
+# variable "zone" {
+#   type = "string"
+# }
 
-variable "request_path" {
-  type = "string"
-}
+# variable "request_path" {
+#   type = "string"
+# }
 
-variable "vof_disk_image" {
-  type = "string"
-}
+# variable "vof_disk_image" {
+#   type = "string"
+# }
 
-variable "machine_type" {
-  type = "string"
-}
+# variable "machine_type" {
+#   type = "string"
+# }
 
-variable "vof_disk_size" {
-  type = "string"
-}
+# variable "vof_disk_size" {
+#   type = "string"
+# }
 
-variable "vof_disk_type" {
-  type = "string"
-}
+# variable "vof_disk_type" {
+#   type = "string"
+# }
 
-variable "check_interval_sec" {}
+# variable "db_instance_tier" {
+#   type    = "string"
+#   default = "db-f1-micro"
+# }
 
-variable "max_instances" {}
+# variable "vof_host" {
+#   type    = "string"
+#   default = "105.21.32.62"
+# }
 
-variable "min_instances" {}
+# variable "project_id" {
+#   type    = "string"
+#   default = ""
+# }
 
-variable "healthy_threshold" {}
+# variable "db_username" {
+#   type    = "string"
+#   default = "scotty"
+# }
 
-variable "unhealthy_threshold" {}
+# variable "db_password" {
+#   type    = "string"
+#   default = "scotty"
+# }
 
-variable "timeout_sec" {}
+# variable "check_interval_sec" {}
+
+# variable "max_instances" {}
+
+# variable "min_instances" {}
+
+# variable "healthy_threshold" {}
+
+# variable "unhealthy_threshold" {}
+
+# variable "timeout_sec" {}
 
 #google_compute_instance which manages a vm instance resource within gce
 #unique name and optional description

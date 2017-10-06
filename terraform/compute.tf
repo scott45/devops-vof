@@ -29,8 +29,7 @@ resource "google_compute_instance_template" "vof-app-server-template" {
   instance_description = "Instance created from base template"
 
   network_interface {
-    network    = "${google_compute_network.vof-network.self_link}"
-    subnetwork = "${google_compute_subnetwork.vof-private-subnetwork.self_link}"
+    subnetwork = "${var.env_name}-vof-private-subnetwork"
   }
 
   disk {
@@ -39,6 +38,11 @@ resource "google_compute_instance_template" "vof-app-server-template" {
     boot         = true
     disk_type    = "${var.vof_disk_type}"
     disk_size_gb = "${var.vof_disk_size}"
+  }
+
+  provisioner "file" {
+    source      = "startup.sh"
+    destination = "/root/startup.sh"
   }
 
   lifecycle {
@@ -63,8 +67,8 @@ resource "google_compute_autoscaler" "vof-app-autoscaler" {
 }
 
 resource "google_compute_https_health_check" "vof-app-healthcheck" {
-  name                = "${var.env_name}-vof-app-healthcheck}"
-  request_path        = "${var.env_name}"
+  name                = "${var.env_name}-vof-app-healthcheck"
+  request_path        = "${var.request_path}"
   check_interval_sec  = "${var.check_interval_sec}"
   timeout_sec         = "${var.timeout_sec}"
   unhealthy_threshold = "${var.unhealthy_threshold}"
