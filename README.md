@@ -1,5 +1,5 @@
 # DevOps-VOF
-scripts for migrating vof from heroku to google cloud
+Scripts for migrating vof from heroku to google cloud
 
 tools used:
 
