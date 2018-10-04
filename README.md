@@ -6,4 +6,4 @@ tools used:
 - terraform
 - Ansible
 - packer
-- shell scripting 
+- Bash/shell scripting 
