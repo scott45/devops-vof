@@ -22,13 +22,13 @@
 
     {
       "type": "shell-local",
-      "command": "mkdir tmp"
+      "command": "mkdir vof"
     },
 
     {
       "type": "file",
       "source": "/Users/scotty/desktop/sample/vof-tracker",
-      "destination": "/tmp",
+      "destination": "/vof",
       "direction": "upload"
 
     },
