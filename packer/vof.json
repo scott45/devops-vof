@@ -24,6 +24,12 @@
       "type": "shell-local",
       "command": "mkdir vof"
     },
+    
+    {
+      "type": "shell-local",
+      "command": "mkdir vof"
+    },
+
 
     {
       "type": "file",
